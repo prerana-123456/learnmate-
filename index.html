@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnMate - AI Study Companion</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">🎓</span>
+        <div>
+          <h1>LearnMate</h1>
+          <p>Your Personal AI Tutor &amp; Study Assistant</p>
+        </div>
+      </div>
+      <div class="badge">Gemini Powered</div>
+    </header>
+
+    <nav class="mode-selector" aria-label="Study Mode Selection">
+      <button class="mode-btn active" data-mode="tutor"><span class="btn-icon">💡</span> Explain</button>
+      <button class="mode-btn" data-mode="summarize"><span class="btn-icon">📝</span> Summarize</button>
+      <button class="mode-btn" data-mode="quiz"><span class="btn-icon">❓</span> Practice Quiz</button>
+      <button class="mode-btn" data-mode="flashcards"><span class="btn-icon">🗂️</span> Flashcards</button>
+    </nav>
+
+    <div class="chips-container" id="chipsContainer">
+      <button class="chip" data-prompt="Explain photosynthesis simply with an everyday analogy.">Photosynthesis 🌱</button>
+      <button class="chip" data-prompt="Create a 3-question multiple choice quiz on World War II.">WWII Quiz 🌍</button>
+      <button class="chip" data-prompt="Summarize Newton's Three Laws of Motion with real-world examples.">Newton's Laws ⚙️</button>
+    </div>
+
+    <main class="chat-area" id="chatArea">
+      <div class="message assistant-message">
+        <div class="bubble">
+          <strong>Welcome to LearnMate! 👋</strong>
+          <p>Pick a mode above, tap a prompt chip, or type whatever topic you're studying right now.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="input-container">
+      <form id="studyForm">
+        <textarea id="userInput" placeholder="Ask a question, paste textbook notes, or request a quiz..." rows="1" required></textarea>
+        <button type="submit" id="sendBtn" aria-label="Send message">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
