@@ -1,0 +1,46 @@
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --surface: #1e293b;
+  --surface-border: #334155;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --assistant-bg: #273549;
+  --user-bg: #4f46e5;
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+body { background: var(--bg-gradient); color: var(--text-main); min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+.app-container { width: 100%; max-width: 760px; height: 100vh; display: flex; flex-direction: column; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(14px); border-left: 1px solid var(--surface-border); border-right: 1px solid var(--surface-border); }
+@media (min-width: 768px) { .app-container { height: 92vh; border-radius: 20px; border: 1px solid var(--surface-border); box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45); } }
+.app-header { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--surface-border); gap: 10px; }
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-icon { font-size: 28px; }
+.logo h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; }
+.logo p { font-size: 0.75rem; color: var(--text-muted); }
+.badge { font-size: 0.75rem; background: rgba(79, 70, 229, 0.25); color: #a5b4fc; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(165, 180, 252, 0.25); }
+.mode-selector { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 10px 16px; border-bottom: 1px solid var(--surface-border); background: rgba(15, 23, 42, 0.5); }
+.mode-btn { background: transparent; color: var(--text-muted); border: 1px solid transparent; padding: 8px 4px; border-radius: var(--radius); cursor: pointer; font-size: 0.75rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: all 0.2s ease; }
+.mode-btn:hover { color: var(--text-main); background: rgba(255, 255, 255, 0.05); }
+.mode-btn.active { background: var(--surface); color: var(--text-main); border-color: var(--surface-border); }
+.chips-container { display: flex; gap: 8px; padding: 10px 16px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+.chips-container::-webkit-scrollbar { display: none; }
+.chip { background: rgba(255, 255, 255, 0.06); border: 1px solid var(--surface-border); color: var(--text-muted); padding: 6px 12px; border-radius: 999px; font-size: 0.75rem; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
+.chip:hover { background: rgba(255, 255, 255, 0.12); color: var(--text-main); }
+.chat-area { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+.message { display: flex; width: 100%; }
+.user-message { justify-content: flex-end; }
+.assistant-message { justify-content: flex-start; }
+.bubble { max-width: 85%; padding: 12px 16px; border-radius: 16px; font-size: 0.92rem; line-height: 1.55; word-break: break-word; white-space: pre-wrap; }
+.user-message .bubble { background: var(--user-bg); color: #fff; border-bottom-right-radius: 4px; }
+.assistant-message .bubble { background: var(--assistant-bg); color: var(--text-main); border-bottom-left-radius: 4px; border: 1px solid var(--surface-border); }
+.input-container { padding: 14px 16px; border-top: 1px solid var(--surface-border); background: rgba(15, 23, 42, 0.95); }
+#studyForm { display: flex; gap: 10px; align-items: flex-end; background: var(--surface); border: 1px solid var(--surface-border); border-radius: 16px; padding: 8px 12px; }
+#userInput { flex: 1; background: transparent; border: none; outline: none; color: var(--text-main); font-size: 0.92rem; resize: none; max-height: 120px; padding: 4px; }
+#sendBtn { background: var(--primary); border: none; border-radius: 12px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; color: #fff; cursor: pointer; flex-shrink: 0; transition: background 0.2s ease, opacity 0.2s ease; }
+#sendBtn:hover:not(:disabled) { background: var(--primary-hover); }
+#sendBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+#sendBtn svg { width: 18px; height: 18px; }
+.loading-dots span { animation: blink 1.4s infinite both; font-size: 1.4rem; line-height: 0; }
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
